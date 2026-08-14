@@ -1,12 +1,10 @@
 /* ============================================
-   CSS VARIABLES & ROOT STYLES
+   CSS VARIABLES & BASE STYLES
    ============================================ */
 
 :root {
-    /* Color Palette */
     --white: #ffffff;
     --soft-blue: #e8f1f8;
-    --light-blue: #b3d9f2;
     --medium-blue: #6ba3d4;
     --navy: #1e3a5f;
     --dark-navy: #0f1f3c;
@@ -14,34 +12,25 @@
     --medium-gray: #e0e0e0;
     --dark-gray: #666666;
     --text-dark: #333333;
-    
-    /* Spacing */
+
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
     --spacing-2xl: 4rem;
-    
-    /* Border Radius */
+
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
-    
-    /* Shadows */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
-    
-    /* Typography */
+
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-size-base: 16px;
     --line-height: 1.6;
 }
-
-/* ============================================
-   GENERAL STYLES
-   ============================================ */
 
 * {
     margin: 0;
@@ -76,10 +65,11 @@ body {
     line-height: var(--line-height);
     color: var(--text-dark);
     background-color: var(--white);
+    overflow-x: hidden;
 }
 
 /* ============================================
-   CONTAINER & LAYOUT
+   LAYOUT WRAPPER
    ============================================ */
 
 .container {
@@ -87,10 +77,6 @@ body {
     margin: 0 auto;
     padding: var(--spacing-lg);
 }
-
-/* ============================================
-   NAVIGATION BAR
-   ============================================ */
 
 .navbar {
     position: sticky;
@@ -136,7 +122,7 @@ body {
     display: flex;
     list-style: none;
     gap: var(--spacing-md);
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: center;
 }
@@ -151,6 +137,7 @@ body {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -158,34 +145,123 @@ body {
     background-color: var(--soft-blue);
 }
 
-/* Mobile Navigation */
+/* ============================================
+   MOBILE NAVIGATION
+   ============================================ */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
     .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-sm);
+        width: 100%;
+        position: relative;
+    }
+
+    .logo-block {
+        flex: 1 1 auto;
+        min-width: 0;
+        padding-right: 0.5rem;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+        white-space: normal;
+        line-height: 1.25;
+    }
+
+    .nav-location {
+        font-size: 0.72rem;
+        white-space: normal;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.28rem;
+        width: 46px;
+        height: 46px;
+        border: 2px solid var(--navy);
+        border-radius: 10px;
+        background: var(--white);
+        cursor: pointer;
+        padding: 0.5rem;
+        flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 3px;
+        border-radius: 999px;
+        background-color: var(--navy);
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+        .nav-links {
+        display: none;
+        width: 100%;
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--spacing-md);
+        gap: 0.5rem;
+        background-color: var(--white);
+        border-top: 1px solid var(--medium-gray);
+        padding-top: 0.75rem;
+        margin-top: 0.25rem;
+        list-style: none;
     }
-    
-    .nav-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--spacing-sm);
-        text-align: left;
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%;
+        justify-content: flex-start;
+        white-space: normal;
+        padding: 0.75rem 0.85rem;
+        min-height: 44px;
     }
 }
 
 @media (max-width: 480px) {
+    .nav-container {
+        padding-inline: 0.75rem;
+    }
+
     .logo {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
 
     .nav-location {
-        font-size: 0.8rem;
+        font-size: 0.68rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .navbar {
+        padding: 0.5rem 0;
     }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
+    .nav-container {
+        gap: 0.75rem;
     }
 }
 
@@ -263,15 +339,15 @@ body {
     .hero {
         height: 350px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .hero-buttons {
         gap: var(--spacing-sm);
         width: 100%;
@@ -312,21 +388,16 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
-}
-
-.btn-secondary:hover {
-    background-color: var(--white);
-    color: var(--navy);
-    transform: translateY(-2px);
-}
-
 .btn-large {
     padding: var(--spacing-md) var(--spacing-2xl);
     font-size: 1.1rem;
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: 0.95rem;
+    }
 }
 
 /* ============================================
@@ -344,6 +415,7 @@ h2 {
     color: var(--navy);
     text-align: center;
     margin-bottom: var(--spacing-2xl);
+    
 }
 
 h3 {
@@ -377,13 +449,13 @@ h4 {
 }
 
 .about-text {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--spacing-2xl);
-    align-items: start;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
     max-width: 1100px;
     width: 100%;
-    font-size: 1.1rem;
+    font-size: clamp(1.05rem, 2vw, 1.8rem);
     line-height: 1.8;
     color: var(--text-dark);
 }
@@ -392,17 +464,19 @@ h4 {
     margin-bottom: 0;
 }
 
-/* Mobile About */
 @media (max-width: 768px) {
     .about-text {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
+        font-size: 1.1rem;
+        line-height: 1.7;
     }
 }
 
-/* ============================================
-   WORSHIP TIMES SECTION
-   ============================================ */
+@media (max-width: 480px) {
+    .about-text {
+        font-size: 1rem;
+    }
+}
+
 
 .worship-times {
     padding: var(--spacing-2xl) 0;
@@ -421,14 +495,9 @@ h4 {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--light-gray);
 }
 
-.worship-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
 
 .worship-card h3 {
     margin-bottom: var(--spacing-md);
@@ -447,8 +516,81 @@ h4 {
     font-size: 0.95rem;
 }
 
+.worship-description {
+    background: linear-gradient(135deg, var(--soft-blue) 0%, var(--white) 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    border: 1px solid var(--light-gray);
+    font-size: 1.2rem;
+}
+
+.worship-description ul {
+    display: block;
+    text-align: left;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    max-width: 100%;
+}
+
+.worship-description-title {
+    font-size: 2.5rem;
+    color: var(--navy);
+    text-align: center;
+    padding: 75px 0 0 0;
+}
+
+
+.more-info {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--soft-blue);
+}
+
+.more-info-content {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-2xl);
+}
+
+.column {
+    flex: 1;
+    background-color: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.column ul {
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding-left: 1.25rem;
+    max-width: 100%;
+}
+
+.column li {
+    margin-bottom: var(--spacing-xs);
+    padding-left: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .more-info-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .column {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
 /* ============================================
-   PASTORS & STAFF SECTION
+   LEADERSHIP SECTION
    ============================================ */
 
 .pastors {
@@ -458,35 +600,65 @@ h4 {
 
 .staff-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 350px);
+    grid-template-columns: 68% 27%;
+    gap: 5%;
     justify-content: center;
-    gap: var(--spacing-xl);
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+
+
+.What-We-Believe {
+    background-color: var(--white);
+    padding: 2.5rem 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: left;
+    font-size: 1.2rem;
+    line-height: 1.65;
+}
+
+.What-We-Believe h3 {
+    text-align: center;
+    color: var(--navy);
+    margin-bottom: var(--spacing-lg);
+    font-size: 2rem;
+}
+
+.What-We-Believe p {
+    margin: 0 0 var(--spacing-md);
+}
+
+.What-We-Believe p:last-child {
+    margin-bottom: 0;
+}
+
+
 
 .staff-card {
     background-color: var(--white);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     text-align: center;
-    padding-top: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.staff-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    padding: 3rem 1rem 3.5rem;
+    height: auto;
 }
 
 .staff-photo {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     object-position: center;
     border-radius: 12px;
+    display: block;
+    margin: 0 auto;
 }
 
 .staff-card h3 {
-    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm) var(--spacing-lg);
+    padding: var(--spacing-md) 0 var(--spacing-xs);
     margin: 0;
     color: var(--navy);
 }
@@ -494,21 +666,49 @@ h4 {
 .staff-card .position {
     color: var(--medium-blue);
     font-weight: 600;
-    padding: 0 var(--spacing-lg);
     margin-bottom: var(--spacing-md);
     font-size: 0.95rem;
 }
 
 .staff-card .bio {
-    padding: 0 0 var(--spacing-lg) 0;
+    padding: 0;
     line-height: 1.6;
     max-width: 300px;
     margin: 0 auto;
 }
 
-/* ============================================
-   EVENTS SECTION
-   ============================================ */
+
+@media (max-width: 900px) {
+    .staff-grid {
+        grid-template-columns: 1fr;
+        align-items: center;
+        max-width: 750px;
+        gap: var(--spacing-xl);
+    }
+
+    .staff-card {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .pastors {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .What-We-Believe {
+        padding: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .staff-photo {
+        width: 160px;
+        height: 160px;
+    }
+}
+
 
 .events {
     padding: var(--spacing-2xl) 0;
@@ -527,11 +727,6 @@ h4 {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     border-top: 4px solid var(--navy);
-    transition: transform 0.3s ease;
-}
-
-.event-card:hover {
-    transform: translateY(-4px);
 }
 
 .event-card h3 {
@@ -558,9 +753,6 @@ h4 {
     line-height: 1.7;
 }
 
-/* ============================================
-   WATCH LIVE SECTION
-   ============================================ */
 
 .watch-live {
     background: linear-gradient(135deg, var(--navy) 0%, var(--dark-navy) 100%);
@@ -584,9 +776,6 @@ h4 {
     line-height: 1.8;
 }
 
-/* ============================================
-   CONTACT & LOCATION SECTION
-   ============================================ */
 
 .contact {
     padding: var(--spacing-2xl) 0;
@@ -670,7 +859,6 @@ h4 {
     min-height: 300px;
 }
 
-/* Mobile Contact */
 @media (max-width: 768px) {
     .contact-wrapper {
         grid-template-columns: 1fr;
@@ -681,9 +869,6 @@ h4 {
     }
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
 
 .footer {
     background-color: var(--navy);
@@ -726,7 +911,6 @@ h4 {
     text-decoration: underline;
 }
 
-/* Mobile Footer */
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
@@ -738,25 +922,23 @@ h4 {
    RESPONSIVE DESIGN
    ============================================ */
 
-/* Tablet (768px and below) */
 @media (max-width: 768px) {
     :root {
         --spacing-lg: 1.5rem;
         --spacing-xl: 2rem;
         --spacing-2xl: 2.5rem;
     }
-    
+
     .container {
         padding: var(--spacing-md);
     }
-    
+
     h2 {
         font-size: 2rem;
         margin-bottom: var(--spacing-xl);
     }
 }
 
-/* Mobile (480px and below) */
 @media (max-width: 480px) {
     :root {
         --font-size-base: 14px;
@@ -764,28 +946,23 @@ h4 {
         --spacing-xl: 1.5rem;
         --spacing-2xl: 2rem;
     }
-    
+
     .hero-title {
         font-size: 1.8rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
-    }
-    
-    .btn {
-        padding: var(--spacing-xs) var(--spacing-md);
-        font-size: 0.95rem;
     }
 
     .contact-buttons .btn {
         width: 100%;
     }
-    
+
     h2 {
         font-size: 1.5rem;
     }
-    
+
     h3 {
         font-size: 1.2rem;
     }
@@ -795,7 +972,6 @@ h4 {
    ACCESSIBILITY & PRINT
    ============================================ */
 
-/* Focus states for keyboard navigation */
 a:focus-visible, button:focus-visible {
     outline: 3px solid var(--medium-blue);
     outline-offset: 3px;
