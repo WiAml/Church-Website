@@ -18,10 +18,18 @@
                 <div class="logo">Pilgrim United Church of Christ</div>
                 <div class="nav-location">Labadie, Missouri</div>
             </div>
-            <ul class="nav-links">
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#worship-times">Worship</a></li>
+                <li><a href="#more-info">More Info</a></li>
                 <li><a href="#pastors">Leadership</a></li>
                 <li><a href="#events">Events</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -40,7 +48,7 @@
                  class="hero-image">
             <div class="hero-overlay">
                 <h1 class="hero-title">Pilgrim United Church of Christ</h1>
-                <p class="hero-subtitle">Serving the Labadie community with faith, fellowship, and grace</p>
+                <p class="hero-subtitle">No matter who you are, or where you are on life’s journey, you are welcome here.</p>
                 <div class="hero-buttons">
                     <a href="https://www.facebook.com/PilgrimUCCLabadie/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit on Facebook</a>
                     <a href="#worship-times" class="btn btn-primary">Worship Times</a>
@@ -55,19 +63,11 @@
          ============================================ -->
     <section id="about" class="about">
         <div class="container">
-            <h2>About Our Church</h2>
+            <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        Pilgrim Church began in 1917 when a group of people felt the need to organize a congregation for the German Protestants in the Labadie Community. 
-                        The first services were held on the lawn of Mr. and Mrs. Florenz Drewel with Rev. J.N. Schuch, pastor of St. Peter's, Washington, officiating. The congregation sat on seats made of planks laid on wooden boxes and nail kegs, and gasoline torches supplied the light with a table as a pulpit. 
-                        Eventually services were held in the Labadie Hall. In November 1917, a constitution was adopted, and when the charter was closed in January 1918, the congregation numbered 71 communicants. By March, a Sunday School was organized with 8 teachers and confirmation classes started. 
-                        It was not until 1926 that a building was erected on property on Academy Hill purchased for $800 by the faithful efforts of the Ladies' Dorcas Society.
-                    </p>
-                    <p>
-                        In the same year, Pilgrim Church was officially accepted as a member of the Evangelical Synod of North America and in 1934, became part of the Evangelical and Reformed Church. A parsonage was built next to the church in 1950. Pilgrim became part of the United Church of Christ in 1957. 
-                        For many years, Pilgrim was served by students from Eden Theological Seminary. In October 1938, Rev. A.H. Behle became the first resident pastor. During the following years, resident ministers and students continued to serve Pilgrim, each leaving a part of himself with the congregation. 
-                        Lay leadership has always played an important role in the ministry of the church, both locally and conference wide. Currently serving the church is Rev. Francis Grantz, a bi-vocational pastor. “The Diamond Year of God's Grace, Today, Tomorrow and Always” was the theme chosen for the 75th Anniversary of Pilgrim.
+                        At Pilgrim UCC in Labadie, Missouri we are a cozy congregation of about 40 active members. We invite you to join us for a Sunday worship service at 10:30 am. 
                     </p>
                 </div>
             </div>
@@ -87,6 +87,57 @@
                     <p class="description">Join us every Sunday for worship and fellowship.</p>
                 </div>
             </div>
+            <h2 class="worship-description-title">Our Worship Services</h2>
+            <div class="worship-description">
+                <ul>
+                    <li>Communion on the first Sunday of the month</li>
+                    <li>Lessons for youth during Children’s Time</li>
+                    <li>Prayers for Joys and Concerns</li>
+                    <li>Sermon</li>
+                    <li>Congregation sung hymns accompanied by our 80 year-old pipe organ</li>
+                    <li>Volunteer Chime Choir</li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         More Information Section
+         ============================================ -->
+    <section id="more-info" class="more-info">
+        <div class="container">
+            <h2>More Information</h2>
+            <div class="more-info-content">
+                <div class="column">
+                    <h3>Youth Involvement</h3>
+                    <ul>
+                        <li>Sunday School during the school year</li>
+                        <li>Confirmation classes</li>
+                        <li>Youth events such as float trips, tubing at Hidden Valley, movies, Halloween fun, and games</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Fellowship</h3>
+                    <ul>
+                        <li>Chili Lunch - February</li>
+                        <li>Seafood Social - March/April</li>
+                        <li>Labadie Community Picnic - June</li>
+                        <li>Apple Butter - September/October</li>
+                        <li>Labadie Community Concerts - Various Dates</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Causes We Support</h3>
+                    <ul>
+                        <li>BackPack Food Program - Providing weekend food for students in need at five local elementary schools</li>
+                        <li>Our Church's Wider Mission</li>
+                        <li>Eden Seminary Support</li>
+                        <li>Camp MoVal</li>
+                        <li>Shanondale Ministry</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -97,10 +148,26 @@
         <div class="container">
             <h2>Leadership</h2>
             <div class="staff-grid">
+                <div class="What-We-Believe">
+                    <h3>What We Believe</h3>
+                    <p>
+                        This Congregation acknowledges as its sole head, Jesus Christ, Son of God and Savior of all. It acknowledges as kindred in Christ all who share this confession.
+                        It looks to the Word of God in the Scriptures, and to the presence and power of the Holy Spirit, to prosper its creative and redemptive work in the world. 
+                    </p>
+                    <p>
+                        It claims as its own the faith of the historic Church expressed in the ancient creeds and reclaimed in the basic insights of the Protestant Reformers.
+                        It affirms the responsibility of the Church in each generation to make this faith its own. 
+                        In accordance with the teaching of our Lord and the practice prevailing among Christians, it recognizes two sacraments: Baptism and the Lord’s Supper of Holy Communion. 
+                    </p>
+                    <p>
+                        We covenant with one another to seek and respond to the Word and the Will of God. We hold it to be the Mission of the Church to witness to the gospel of Jesus Christ in all the world, while worshiping God and striving for truth, justice and peace. 
+                        We depend on the Holy Spirit to lead and empower us and pray for the coming of the Kingdom of God and look with faith toward the triumph of righteousness and eternal life.
+                    </p>
+                </div>
                 <div class="staff-card">
                     <img src="Images/Matthew-Helis.jpg" 
-                         alt="Matthew Helis" 
-                         class="staff-photo">
+                         alt="Portrait of Matthew Helis, pastor" 
+                         class="staff-photo" width="180" height="180" loading="lazy">
                     <h3>Matthew Helis</h3>
                     <p class="position">Pastor</p>
                     <p class="bio">
@@ -119,14 +186,6 @@
         <div class="container">
             <h2>Upcoming Events</h2>
             <div class="events-grid">
-                <div class="event-card">
-                    <h3>Sunday Worship</h3>
-                    <p class="event-date">Every Sunday</p>
-                    <p class="event-time">10:30 AM</p>
-                    <p class="event-description">
-                        Gather with the congregation for worship, fellowship, and encouragement.
-                    </p>
-                </div>
                 <div class="event-card">
                     <h3>Community Updates</h3>
                     <p class="event-date">Please check back</p>
@@ -182,10 +241,10 @@
                     </div>
                 </div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps?q=301%20Academy%20St%20Labadie%20MO&output=embed"
-                            target="_blank" rel="noopener noreferrer" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" 
+                        <iframe src="https://www.google.com/maps?q=301%20Academy%20St%20Labadie%20MO&output=embed"
+                            width="100%" height="400" style="border:0;" allowfullscreen loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade" 
-                            aria-label="Church location on Google Maps"></iframe>
+                            aria-label="Church location on Google Maps" title="Map showing church location"></iframe>
                 </div>
             </div>
         </div>
@@ -212,5 +271,23 @@
         </div>
     </footer>
 
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
