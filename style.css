@@ -698,6 +698,19 @@ h4 {
         padding: var(--spacing-xl) 0;
     }
 
+    .pastors > .container > h2 {
+        font-size: 2.25rem;
+    }
+
+    .worship-description-title {
+        font-size: 1.5rem;
+        padding-top: 2.5rem;
+    }
+
+    .worship-description {
+        font-size: 0.95rem;
+    }
+
     .What-We-Believe {
         padding: 1.5rem;
         font-size: 0.95rem;
